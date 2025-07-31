@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Hải Đăng Cuộc Đời</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Hải Đăng Cuộc Đời</h1>
+    <nav>
+      <button onclick="setLang('vi')">Tiếng Việt</button>
+      <button onclick="setLang('en')">English</button>
+      <button onclick="setLang('ja')">日本語</button>
+    </nav>
+  </header>
+  <main>
+    <p id="message">Nếu bạn cần, hãy gửi lời nhắn. Không cần tên tuổi.</p>
+    <form action="https://formspree.io/f/xbjngnqq" method="POST">
+      <textarea name="message" placeholder="Viết gì đó..." required></textarea>
+      <button type="submit">Gửi</button>
+    </form>
+  </main>
+  <footer>
+    &copy; Hải Đăng Cuộc Đời – Bình yên cho tất cả
+  </footer>
+  <script>
+    const texts = {
+      vi: {
+        message: "Nếu bạn cần, hãy gửi lời nhắn. Không cần tên tuổi.",
+        submit: "Gửi"
+      },
+      en: {
+        message: "If you need, leave a message. No name needed.",
+        submit: "Send"
+      },
+      ja: {
+        message: "必要なら、匿名でメッセージを送ってください。",
+        submit: "送信"
+      }
+    };
+
+    function setLang(lang) {
+      document.getElementById('message').innerText = texts[lang].message;
+      document.querySelector('button[type="submit"]').innerText = texts[lang].submit;
+    }
+  </script>
+</body>
+</html>

@@ -1,9 +1,51 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Hải Đăng Cuộc Đời</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #004d99;
+      color: white;
+      padding: 20px 0;
+      margin-bottom: 30px;
+    }
+    nav button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      margin: 0 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    nav button:hover {
+      background-color: #0056b3;
+    }
+    main {
+      font-size: 20px;
+      padding: 0 20px 50px;
+    }
+    footer {
+      background-color: #222;
+      color: #ddd;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -14,14 +56,35 @@
       <button onclick="setLang('ja')">日本語</button>
     </nav>
   </header>
+
   <main>
-    <p id="message">Nếu bạn cần, hãy gửi lời nhắn. Không cần tên tuổi.</p>
-  <form action="https://formspree.io/f/xwkgvnqq" method="POST">
-  <input type="text" name="sender" placeholder="Tên hoặc Email của bạn" required style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem;">
-  <textarea name="message" placeholder="Viết lời nhắn của bạn ở đây..." required></textarea>
-  <button type="submit">Gửi</button>
-</form>
+    <p id="main-message">Chào mừng bạn đến với website của mình!</p>
+  </main>
 
+  <footer>
+    &copy; 2025 HAIDANGCUOCDOI
+  </footer>
 
+  <script>
+    function setLang(lang) {
+      const content = {
+        vi: {
+          title: "Hải Đăng Cuộc Đời",
+          message: "Chào mừng bạn đến với website của mình!"
+        },
+        en: {
+          title: "Lighthouse of Life",
+          message: "Welcome to my website!"
+        },
+        ja: {
+          title: "人生の灯台",
+          message: "私のウェブサイトへようこそ！"
+        }
+      };
 
-   
+      document.querySelector('h1').innerText = content[lang].title;
+      document.getElementById('main-message').innerText = content[lang].message;
+    }
+  </script>
+</body>
+</html>

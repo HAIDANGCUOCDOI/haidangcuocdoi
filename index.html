@@ -2,89 +2,81 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hải Đăng Cuộc Đời</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f9;
-      color: #333;
+      background: #f7f7f7;
       margin: 0;
       padding: 0;
       text-align: center;
     }
     header {
-      background-color: #004d99;
+      background: #005fa3;
       color: white;
-      padding: 20px 0;
-      margin-bottom: 30px;
+      padding: 2rem 1rem;
+      font-size: 2rem;
+      font-weight: bold;
     }
     nav button {
-      background-color: #007bff;
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #0a84ff;
       color: white;
       border: none;
-      margin: 0 5px;
-      padding: 10px 15px;
+      border-radius: 8px;
       cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-    }
-    nav button:hover {
-      background-color: #0056b3;
     }
     main {
-      font-size: 20px;
-      padding: 0 20px 50px;
+      padding: 2rem;
+    }
+    textarea {
+      width: 90%;
+      max-width: 500px;
+      height: 120px;
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      font-size: 1rem;
+    }
+    button[type="submit"] {
+      margin-top: 1rem;
+      padding: 0.5rem 2rem;
+      background: #0a84ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
     }
     footer {
-      background-color: #222;
-      color: #ddd;
-      padding: 10px 0;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      font-size: 14px;
+      margin-top: 2rem;
+      color: #888;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Hải Đăng Cuộc Đời</h1>
+    Hải Đăng Cuộc Đời
     <nav>
-      <button onclick="setLang('vi')">Tiếng Việt</button>
-      <button onclick="setLang('en')">English</button>
-      <button onclick="setLang('ja')">日本語</button>
+      <button>Tiếng Việt</button>
+      <button>English</button>
+      <button>日本語</button>
     </nav>
   </header>
-
   <main>
-    <p id="main-message">Chào mừng bạn đến với website của mình!</p>
+    <p>Nếu bạn cần, hãy gửi lời nhắn. Không cần tên tuổi.</p>
+    <form action="https://formspree.io/f/xbjngnqq" method="POST">
+      <textarea name="message" placeholder="Viết gì đó..." required></textarea>
+      <br />
+      <button type="submit">Gửi</button>
+    </form>
   </main>
-
   <footer>
-    &copy; 2025 HAIDANGCUOCDOI
+    &copy; Hải Đăng Cuộc Đời – Bình yên cho tất cả
   </footer>
-
-  <script>
-    function setLang(lang) {
-      const content = {
-        vi: {
-          title: "Hải Đăng Cuộc Đời",
-          message: "Chào mừng bạn đến với website của mình!"
-        },
-        en: {
-          title: "Lighthouse of Life",
-          message: "Welcome to my website!"
-        },
-        ja: {
-          title: "人生の灯台",
-          message: "私のウェブサイトへようこそ！"
-        }
-      };
-
-      document.querySelector('h1').innerText = content[lang].title;
-      document.getElementById('main-message').innerText = content[lang].message;
-    }
-  </script>
 </body>
 </html>

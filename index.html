@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hải Đăng Cuộc Đời</title>
 
-  <!-- PHẦN SEO BẮT ĐẦU Ở ĐÂY -->
+  <!-- SEO -->
   <meta name="description" content="Viết ra điều gì đó trong lòng – không ai biết bạn là ai, không ai giữ bạn lại. Một không gian thầm lặng để bạn gửi lời nhắn ẩn danh.">
   <meta name="keywords" content="nơi yên tĩnh, gửi lời nhắn ẩn danh, viết tâm sự, chữa lành, không ai biết mình, không cần tài khoản">
   <meta name="author" content="Hải Đăng Cuộc Đời">
@@ -19,8 +19,6 @@
   <meta name="twitter:title" content="Một nơi yên tĩnh để thả nhẹ lòng mình">
   <meta name="twitter:description" content="Viết ra điều gì đó trong lòng – không ai biết bạn là ai, không ai giữ bạn lại.">
   <meta name="twitter:image" content="https://raw.githubusercontent.com/HAIDANGCUOCDOI/haidangcuocdoi/main/og-image.jpg">
-
-  <!-- PHẦN SEO KẾT THÚC Ở ĐÂY -->
 
   <style>
     body {
@@ -80,22 +78,64 @@
   <header>
     Hải Đăng Cuộc Đời
     <nav>
-      <button>Tiếng Việt</button>
-      <button>English</button>
-      <button>日本語</button>
+      <button onclick="setLang('vi')">Tiếng Việt</button>
+      <button onclick="setLang('en')">English</button>
+      <button onclick="setLang('ja')">日本語</button>
     </nav>
   </header>
   <main>
     <img src="og-image.jpg" alt="Hải Đăng Cuộc Đời" style="max-width: 100%; height: auto; margin-bottom: 1rem;">
-    <p>Nếu bạn cần, hãy gửi lời nhắn. Không cần tên tuổi.</p>
-    <form action="https://formspree.io/f/xbjngnqq" method="POST">
-      <textarea name="message" placeholder="Viết gì đó..." required></textarea>
-      <br />
-      <button type="submit">Gửi</button>
-    </form>
+
+    <!-- Tiếng Việt -->
+    <div class="lang" id="vi">
+      <p>Nếu bạn cần, hãy gửi lời nhắn. Không cần tên tuổi.</p>
+      <form action="https://formspree.io/f/xbjngnqq" method="POST">
+        <textarea name="message" placeholder="Viết gì đó..." required></textarea><br />
+        <button type="submit">Gửi</button>
+      </form>
+    </div>
+
+    <!-- English -->
+    <div class="lang" id="en" style="display:none;">
+      <p>If you need to, feel free to send a message. No name needed.</p>
+      <form action="https://formspree.io/f/xbjngnqq" method="POST">
+        <textarea name="message" placeholder="Write something..." required></textarea><br />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <!-- 日本語 -->
+    <div class="lang" id="ja" style="display:none;">
+      <p>もしよければ、匿名でメッセージを送ってください。</p>
+      <form action="https://formspree.io/f/xbjngnqq" method="POST">
+        <textarea name="message" placeholder="何か書いてください..." required></textarea><br />
+        <button type="submit">送信</button>
+      </form>
+    </div>
   </main>
+
   <footer>
     &copy; Hải Đăng Cuộc Đời – Bình yên cho tất cả
   </footer>
+
+  <script>
+    function setLang(lang) {
+      localStorage.setItem("preferredLang", lang);
+      showLang(lang);
+    }
+
+    function showLang(lang) {
+      document.querySelectorAll(".lang").forEach(el => el.style.display = "none");
+      const selected = document.getElementById(lang);
+      if (selected) selected.style.display = "block";
+    }
+
+    // Auto detect language
+    const storedLang = localStorage.getItem("preferredLang");
+    const browserLang = navigator.language.slice(0, 2);
+    const supported = ["vi", "en", "ja"];
+    const chosenLang = storedLang || (supported.includes(browserLang) ? browserLang : "en");
+    showLang(chosenLang);
+  </script>
 </body>
 </html>

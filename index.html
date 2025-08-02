@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Hải Đăng Cuộc Đời</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
     <header>
         <h1>Hải Đăng Cuộc Đời</h1>
+        <p>Nơi bạn có thể gửi những lời nhắn ẩn danh</p>
     </header>
 
     <main>
-        <form id="messageForm" method="POST">
-            <textarea name="message" placeholder="Viết lời nhắn ở đây..." required></textarea>
-            <button type="submit">Đăng lời nhắn</button>
+        <form id="contact-form">
+            <textarea name="message" placeholder="Nhập lời nhắn của bạn ở đây..." required></textarea>
+            <button type="submit">Gửi lời nhắn</button>
         </form>
-        <p id="status"></p>
     </main>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; Hải Đăng Cuộc Đời</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- ĐÃ THÊM DÒNG NÀY -->
 </body>
 </html>

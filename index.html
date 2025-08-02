@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hải Đăng Cuộc Đời</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hải Đăng Cuộc Đời</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <img src="haidang.gif" alt="Hải Đăng Cuộc Đời" class="small-gif" />
-        <h1>Hải Đăng Cuộc Đời</h1>
-    </header>
+  <div class="container">
+    <img src="haidang.gif" alt="Hải đăng" class="logo" />
 
-    <main>
-        <p>Một không gian tĩnh lặng để gửi những lời nhắn ẩn danh, nhẹ nhàng, chữa lành.</p>
+    <h1 data-lang-vi="Hải Đăng Cuộc Đời" data-lang-en="Lighthouse of Life" data-lang-ja="人生の灯台">Hải Đăng Cuộc Đời</h1>
 
-        <form action="https://example.com" method="POST">
-            <textarea name="message" placeholder="Viết lời nhắn của bạn..." required></textarea>
-            <button type="submit">Gửi lời nhắn</button>
-        </form>
-    </main>
+    <p data-lang-vi="Bạn có thể gửi một lời nhắn ẩn danh tại đây." 
+       data-lang-en="You can leave an anonymous message here." 
+       data-lang-ja="ここで匿名のメッセージを送ることができます。">
+      Bạn có thể gửi một lời nhắn ẩn danh tại đây.
+    </p>
 
-    <!-- Nhạc nền -->
-    <audio id="background-audio" autoplay loop>
-        <source src="A.mp3" type="audio/mp3">
-        Trình duyệt của bạn không hỗ trợ âm thanh.
-    </audio>
+    <form id="messageForm">
+      <textarea name="message" placeholder="..." required></textarea>
+      <button type="submit"
+        data-lang-vi="Gửi"
+        data-lang-en="Send"
+        data-lang-ja="送信">Gửi</button>
+    </form>
 
-    <script src="script.js"></script>
+    <div id="response"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,141 +1,24 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hải Đăng Cuộc Đời</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Viết ra điều gì đó trong lòng – không ai biết bạn là ai, không ai giữ bạn lại. Một không gian thầm lặng để bạn gửi lời nhắn ẩn danh.">
-  <meta name="keywords" content="nơi yên tĩnh, gửi lời nhắn ẩn danh, viết tâm sự, chữa lành, không ai biết mình, không cần tài khoản">
-  <meta name="author" content="Hải Đăng Cuộc Đời">
-
-  <meta property="og:title" content="Một nơi yên tĩnh để thả nhẹ lòng mình" />
-  <meta property="og:description" content="Viết ra điều gì đó trong lòng – không ai biết bạn là ai, không ai giữ bạn lại. Một không gian thầm lặng để bạn gửi lời nhắn ẩn danh." />
-  <meta property="og:url" content="https://lighthousesoul.com" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/HAIDANGCUOCDOI/haidangcuocdoi/main/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Một nơi yên tĩnh để thả nhẹ lòng mình">
-  <meta name="twitter:description" content="Viết ra điều gì đó trong lòng – không ai biết bạn là ai, không ai giữ bạn lại.">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/HAIDANGCUOCDOI/haidangcuocdoi/main/og-image.jpg">
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      background: #005fa3;
-      color: white;
-      padding: 2rem 1rem;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-    nav button {
-      margin: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: #0a84ff;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    main {
-      padding: 2rem;
-    }
-    textarea {
-      width: 90%;
-      max-width: 500px;
-      height: 120px;
-      padding: 0.5rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      resize: vertical;
-      font-size: 1rem;
-    }
-    button[type="submit"] {
-      margin-top: 1rem;
-      padding: 0.5rem 2rem;
-      background: #0a84ff;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    footer {
-      margin-top: 2rem;
-      color: #888;
-      font-size: 0.9rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hải Đăng Cuộc Đời</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    Hải Đăng Cuộc Đời
-    <nav>
-      <button onclick="setLang('vi')">Tiếng Việt</button>
-      <button onclick="setLang('en')">English</button>
-      <button onclick="setLang('ja')">日本語</button>
-    </nav>
-  </header>
-  <main>
-    <img src="og-image.jpg" alt="Hải Đăng Cuộc Đời" style="max-width: 100%; height: auto; margin-bottom: 1rem;">
+    <header>
+        <h1>Hải Đăng Cuộc Đời</h1>
+    </header>
 
-    <!-- Tiếng Việt -->
-    <div class="lang" id="vi">
-      <p>Nếu bạn cần, hãy gửi lời nhắn. Không cần tên tuổi.</p>
-      <form action="https://formspree.io/f/xbjngnqq" method="POST">
-        <textarea name="message" placeholder="Viết gì đó..." required></textarea><br />
-        <button type="submit">Gửi</button>
-      </form>
-    </div>
+    <main>
+        <form id="messageForm" method="POST">
+            <textarea name="message" placeholder="Viết lời nhắn ở đây..." required></textarea>
+            <button type="submit">Đăng lời nhắn</button>
+        </form>
+        <p id="status"></p>
+    </main>
 
-    <!-- English -->
-    <div class="lang" id="en" style="display:none;">
-      <p>If you need to, feel free to send a message. No name needed.</p>
-      <form action="https://formspree.io/f/xbjngnqq" method="POST">
-        <textarea name="message" placeholder="Write something..." required></textarea><br />
-        <button type="submit">Send</button>
-      </form>
-    </div>
-
-    <!-- 日本語 -->
-    <div class="lang" id="ja" style="display:none;">
-      <p>もしよければ、匿名でメッセージを送ってください。</p>
-      <form action="https://formspree.io/f/xbjngnqq" method="POST">
-        <textarea name="message" placeholder="何か書いてください..." required></textarea><br />
-        <button type="submit">送信</button>
-      </form>
-    </div>
-  </main>
-
-  <footer>
-    &copy; Hải Đăng Cuộc Đời – Bình yên cho tất cả
-  </footer>
-
-  <script>
-    function setLang(lang) {
-      localStorage.setItem("preferredLang", lang);
-      showLang(lang);
-    }
-
-    function showLang(lang) {
-      document.querySelectorAll(".lang").forEach(el => el.style.display = "none");
-      const selected = document.getElementById(lang);
-      if (selected) selected.style.display = "block";
-    }
-
-    // Auto detect language
-    const storedLang = localStorage.getItem("preferredLang");
-    const browserLang = navigator.language.slice(0, 2);
-    const supported = ["vi", "en", "ja"];
-    const chosenLang = storedLang || (supported.includes(browserLang) ? browserLang : "en");
-    showLang(chosenLang);
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>

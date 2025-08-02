@@ -1,32 +1,25 @@
-// script.js
+// Danh sách các file âm thanh
+const tracks = ['A.mp3', 'B.mp3', 'C.mp3'];
+let currentTrack = 0;
 
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("contact-form");
+// Tạo thẻ audio ẩn
+const audio = new Audio();
+audio.src = tracks[currentTrack];
+audio.autoplay = true;
+audio.loop = false; // để tự xử lý vòng lặp thủ công
+audio.volume = 0.5; // chỉnh nhỏ vừa phải
 
-    form.addEventListener("submit", async function(e) {
-        e.preventDefault(); // không cho submit mặc định
+// Khi kết thúc 1 bài, phát bài tiếp theo
+audio.addEventListener('ended', () => {
+    currentTrack = (currentTrack + 1) % tracks.length; // vòng lặp A->B->C->A
+    audio.src = tracks[currentTrack];
+    audio.play();
+});
 
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-
-        try {
-            const response = await fetch("https://YOUR-WEBHOOK-URL-HERE", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                alert("Đã gửi thành công. Cảm ơn bạn.");
-                form.reset();
-            } else {
-                alert("Gửi thất bại. Vui lòng thử lại.");
-            }
-        } catch (error) {
-            console.error(error);
-            alert("Có lỗi xảy ra. Vui lòng thử lại.");
-        }
+// Tự động phát khi trang load
+window.addEventListener('load', () => {
+    audio.play().catch(e => {
+        // Một số trình duyệt chặn autoplay, chỉ log ra thôi
+        console.log('Autoplay bị chặn:', e);
     });
 });

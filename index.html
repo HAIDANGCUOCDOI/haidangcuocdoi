@@ -7,23 +7,26 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
     <header>
+        <img src="haidang.gif" alt="Hải Đăng Cuộc Đời" class="small-gif" />
         <h1>Hải Đăng Cuộc Đời</h1>
-        <p>Nơi bạn có thể gửi những lời nhắn ẩn danh</p>
     </header>
 
     <main>
-        <form id="contact-form">
-            <textarea name="message" placeholder="Nhập lời nhắn của bạn ở đây..." required></textarea>
+        <p>Một không gian tĩnh lặng để gửi những lời nhắn ẩn danh, nhẹ nhàng, chữa lành.</p>
+
+        <form action="https://example.com" method="POST">
+            <textarea name="message" placeholder="Viết lời nhắn của bạn..." required></textarea>
             <button type="submit">Gửi lời nhắn</button>
         </form>
     </main>
 
-    <footer>
-        <p>&copy; Hải Đăng Cuộc Đời</p>
-    </footer>
+    <!-- Nhạc nền -->
+    <audio id="background-audio" autoplay loop>
+        <source src="A.mp3" type="audio/mp3">
+        Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
 
-    <script src="script.js"></script> <!-- ĐÃ THÊM DÒNG NÀY -->
+    <script src="script.js"></script>
 </body>
 </html>

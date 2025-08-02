@@ -46,6 +46,8 @@ const textsByLang = {
     success: "Đã gửi thành công.",
     error: "Có lỗi xảy ra. Vui lòng thử lại.",
     empty: "Bạn chưa nhập nội dung.",
+    stopMusic: "Tắt nhạc",
+    playMusic: "Mở nhạc",
   },
   en: {
     heading: "Lighthouse of Life",
@@ -55,6 +57,8 @@ const textsByLang = {
     success: "Message sent successfully.",
     error: "Something went wrong. Please try again.",
     empty: "Message is empty.",
+    stopMusic: "Stop Music",
+    playMusic: "Play Music",
   },
   ja: {
     heading: "人生の灯台",
@@ -64,6 +68,8 @@ const textsByLang = {
     success: "メッセージが送信されました。",
     error: "エラーが発生しました。もう一度お試しください。",
     empty: "メッセージが空です。",
+    stopMusic: "音楽を停止",
+    playMusic: "音楽を再生",
   },
 };
 
@@ -73,10 +79,11 @@ window.addEventListener("DOMContentLoaded", () => {
   document.querySelector("h1").textContent = texts.heading;
   document.querySelector("p").textContent = texts.sub;
   document.querySelector("textarea").placeholder = texts.placeholder;
-  document.querySelector("button").textContent = texts.button;
+  document.querySelector("button[type='submit']").textContent = texts.button;
+  document.getElementById("toggleMusic").textContent = texts.stopMusic;
 });
 
-// Phần 3: Phát nhạc nền tự động (A → B → C)
+// Phần 3: Phát nhạc nền tự động
 const tracks = ["A.mp3", "B.mp3", "C.mp3"];
 let currentTrack = 0;
 const audio = new Audio();
@@ -95,4 +102,19 @@ window.addEventListener("load", () => {
   audio.play().catch((e) => {
     console.log("Autoplay bị chặn:", e);
   });
+});
+
+// Phần 4: Nút bật/tắt nhạc
+const toggleBtn = document.getElementById("toggleMusic");
+let isPlaying = true;
+
+toggleBtn.addEventListener("click", () => {
+  if (isPlaying) {
+    audio.pause();
+    toggleBtn.textContent = texts.playMusic;
+  } else {
+    audio.play();
+    toggleBtn.textContent = texts.stopMusic;
+  }
+  isPlaying = !isPlaying;
 });

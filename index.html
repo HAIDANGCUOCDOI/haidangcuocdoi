@@ -8,27 +8,18 @@
 </head>
 <body>
   <div class="container">
-    <img src="haidang.gif" alt="Hải đăng" class="logo" />
-
-    <h1 data-lang-vi="Hải Đăng Cuộc Đời" data-lang-en="Lighthouse of Life" data-lang-ja="人生の灯台">Hải Đăng Cuộc Đời</h1>
-
-    <p data-lang-vi="Bạn có thể gửi một lời nhắn ẩn danh tại đây." 
-       data-lang-en="You can leave an anonymous message here." 
-       data-lang-ja="ここで匿名のメッセージを送ることができます。">
-      Bạn có thể gửi một lời nhắn ẩn danh tại đây.
-    </p>
-
-    <form id="messageForm">
-      <textarea name="message" placeholder="..." required></textarea>
-      <button type="submit"
-        data-lang-vi="Gửi"
-        data-lang-en="Send"
-        data-lang-ja="送信">Gửi</button>
+    <img src="logo.png" alt="Logo" class="logo" />
+    <h1>Hải Đăng Cuộc Đời</h1>
+    <p>Nơi bạn có thể gửi một lời nhắn nhẹ nhàng, ẩn danh.</p>
+    <form>
+      <textarea name="message" placeholder="Viết điều bạn muốn chia sẻ..."></textarea>
+      <button type="submit">Gửi</button>
     </form>
-
     <div id="response"></div>
+    <div id="musicControl">
+      <button id="toggleMusic">Tắt nhạc</button>
+    </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
